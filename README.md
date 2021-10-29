@@ -4,7 +4,7 @@ go-micro-frame，极简、快速、零成本，积木式go微服务框架。
 
 go-micro-frame，是一套开源组件组合而成的微服务框架。所有组件都可自行替换。
 
-没有框架的强约束，没有学习上的成本。只需要搭建积木的方式组合自己的框架来快速开展业务。框架只保留了微服务的核心功能，使用者可以完全自主的进行改造和模块替换。目前最新版本是1.3.3， ci/cd集成, nacos做注册中心。
+没有框架的强约束，没有学习上的成本。只需要搭建积木的方式组合自己的框架来快速开展业务。框架只保留了微服务的核心功能，使用者可以完全自主的进行改造和模块替换， ci/cd集成, nacos做注册中心，也可以consul替换。
 
 ## 项目特点
 
@@ -56,13 +56,11 @@ cron            【分布式定时任务;go:go-cron,java:xxl-job】
 ## 版本说明
 
 ```
-v1.1.X 完成
+v1.1.1 完成
 已经实现了模块介绍中的功能
 ```
 
 ```
-v1.2.X 完成
-会把microframe.com里的模块全部实现，进行统一维护，方便更新和迭代替换。
 nacos：已封装
 logger: 已封装
 jaeger: 已封装
@@ -74,22 +72,22 @@ rabbitmq: 已封装
 elasticSearch: 已封装
 sentinel
 redis: 已封装:alone sentinel cluster 三种模式
-```
 
-```
-v1.3.X
-会增加k8s的自动化发布脚本，Prometheus、Grafana监控等
-v1.3.3
 增加了cicd自动化发布脚本,docker打包脚本等
 这里使用的是：drone做的cicd，类似jenkins，但是比jenkins轻便很多。
 代码仓库是： gogs; docker仓库的是:harbor
+```
 
-v1.3.4 开发中
+```
+v1.2.X
+会增加k8s的自动化发布脚本，Prometheus、Grafana监控等
+
+v1.2.1 开发中
 cicd，自动化发布到k8s中
 ```
 
 ```
-v1.4.X 规划
+v1.3.X 规划
 web层多实现
 web-springboot: java版本的web, 利用springboot框架调用grpc服务
 web-hyperf: php版本的web，利用 hyperf框架调用grpc服务
