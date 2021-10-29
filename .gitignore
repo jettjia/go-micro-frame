@@ -1,0 +1,11 @@
+.idea/
+.git/
+
+service/logger/logs
+service/es/logs
+
+core/config/nacos/tmp
+core/register/nacos/tmp
+
+
+

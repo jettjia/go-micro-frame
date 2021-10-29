@@ -1,0 +1,7 @@
+host: '10.4.7.71'
+port: 8848
+namespace: 'b79d1500-d143-447d-873a-4d545e3d186c'
+user: 'nacos'
+password: 'nacos'
+dataid: 'micro-web.json'
+group: 'dev'
