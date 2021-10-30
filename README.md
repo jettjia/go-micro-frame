@@ -19,7 +19,7 @@ go-micro-frame，是一套开源组件组合而成的微服务框架。所有组
 
 文档参考：https://github.com/jettjia/go-micro-fram-doc
 
-
+框架使用参考：https://github.com/jettjia/go-micro-frame-demos
 
 ## 运行项目
 
@@ -113,11 +113,17 @@ gogs	【code仓库】
 代码提交的时候，会自动触发，自动构建，自动发布。大大的节约开发和运维的时间
 ```
 
- drone![image-20210928144848124](images/image-20210928144848124.png)
+ drone
 
-harbor ![image-20210928144916688](images/image-20210928144916688.png)
+![](https://cdn.nlark.com/yuque/0/2021/png/12759381/1635637765185-assets/web-upload/61a7da72-aef9-489f-84b5-50ae0eacb411.png)
 
-gogs![image-20210928144942719](images/image-20210928144942719.png)
+harbor 
+
+![](https://cdn.nlark.com/yuque/0/2021/png/12759381/1635637765209-assets/web-upload/98576ffd-9f1c-4dff-ad2c-3be7ef1717f2.png)
+
+gogs
+
+![](https://cdn.nlark.com/yuque/0/2021/png/12759381/1635637765170-assets/web-upload/7edd61a4-598e-407e-bb5e-bfc995c243c6.png)
 
 ## 项目演示
 
@@ -127,7 +133,7 @@ gogs![image-20210928144942719](images/image-20210928144942719.png)
 
     配置内容参考, grpc里的配置示例
 
-    <img src="images/image-20210921163646319.png" alt="image-20210921163646319" style="zoom:50%;" />
+    ![https://cdn.nlark.com/yuque/0/2021/png/12759381/1635637765255-assets/web-upload/e26d6e6d-1714-46a0-abe4-e2e64bef9746.png](https://cdn.nlark.com/yuque/0/2021/png/12759381/1635637765255-assets/web-upload/e26d6e6d-1714-46a0-abe4-e2e64bef9746.png)
 
 2. 启动grpc项目，会从nacos读取配置
 
@@ -140,7 +146,7 @@ gogs![image-20210928144942719](images/image-20210928144942719.png)
 
 ​	consul会注册服务，这里可以启动多个grpc服务，已经实现了负载均衡的获取服务。
 
-  <img src="images/image-20210921162747411.png" alt="image-20210921162747411" style="zoom:33%;" />
+  ![](https://cdn.nlark.com/yuque/0/2021/png/12759381/1635637765137-assets/web-upload/9ec00855-6ff3-46bc-911a-1f479155531e.png)
 
 
 
@@ -161,11 +167,11 @@ gogs![image-20210928144942719](images/image-20210928144942719.png)
 
 3. 请求用postman 访问web层的接口
 
-      <img src="images/image-20210921164033597.png" alt="image-20210921164033597" style="zoom: 25%;" />
+      ![](https://cdn.nlark.com/yuque/0/2021/png/12759381/1635637765258-assets/web-upload/6caee327-0679-4c51-a287-86cecff7b3e9.png)
 
 4. 链路追踪
 
-​       <img src="images/image-20210921164122346.png" alt="image-20210921164122346" style="zoom: 25%;" />
+​       ![](https://cdn.nlark.com/yuque/0/2021/png/12759381/1635637765266-assets/web-upload/d4e43375-7ef2-4e42-b089-608710caf671.png)
 
 
 
