@@ -6,6 +6,11 @@ require (
 	github.com/BurntSushi/toml v0.4.1 // indirect
 	github.com/FZambia/sentinel v1.1.0
 	github.com/HdrHistogram/hdrhistogram-go v1.1.2 // indirect
+	github.com/alibabacloud-go/darabonba-openapi v0.1.7
+	github.com/alibabacloud-go/dysmsapi-20170525/v2 v2.0.6
+	github.com/alibabacloud-go/tea v1.1.17
+	github.com/alibabacloud-go/tea-console v1.0.0
+	github.com/alibabacloud-go/tea-utils v1.4.1
 	github.com/aliyun/aliyun-oss-go-sdk v1.9.8
 	github.com/baiyubin/aliyun-sts-go-sdk v0.0.0-20180326062324-cfa1a18b161f // indirect
 	github.com/buger/jsonparser v1.0.0 // indirect
