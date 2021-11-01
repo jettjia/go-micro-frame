@@ -1,7 +1,6 @@
 package redigo
 
 import (
-	redsyncredis "github.com/go-redsync/redsync/v4/redis"
 	"github.com/gomodule/redigo/redis"
 )
 
@@ -23,9 +22,4 @@ func NewRedisClient(addr []string, password string, typ int) redis.Conn {
 	}
 
 	return conn
-}
-
-// 分布式锁
-func NewRedsyncLockPool(host string, port int, user string, password string) redsyncredis.Pool {
-	return GetRedsyncLockPool(host, port, user, password)
 }

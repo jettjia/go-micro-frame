@@ -2,7 +2,7 @@ package gkafka
 
 import (
 	"fmt"
-	
+
 	"github.com/Shopify/sarama"
 )
 

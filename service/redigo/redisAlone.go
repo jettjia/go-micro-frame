@@ -2,6 +2,7 @@ package redigo
 
 import (
 	"fmt"
+
 	"github.com/gomodule/redigo/redis"
 )
 
