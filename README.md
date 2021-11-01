@@ -59,6 +59,8 @@ cron            【分布式定时任务;go:go-cron,java:xxl-job】
 分布式mysql	【go: gaea分库分表; java: shardingsphere-proxy】
 OSS             【本地存储，阿里云存储，腾讯云存储，七牛存储】
 SMS             【阿里云 sms】
+zip             【压缩和解压】
+xml2map         【xml2map, map2xml】
 ```
 
 ## 版本说明
