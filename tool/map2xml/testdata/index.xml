@@ -1,0 +1,22 @@
+<person mood="happy">
+  <got_a_job>true</got_a_job>
+  <address>
+    <street>124 Oxford Street</street>
+    <city>Somewhere</city>
+    <zip_code>32784</zip_code>
+    <state>Deep state</state>
+  </address>
+  <fileList>
+    <fileList_child>
+      <username>jett1</username>
+      <age>20</age>
+    </fileList_child>
+    <fileList_child>
+      <username>jett2</username>
+      <age>22</age>
+    </fileList_child>
+  </fileList>
+  <first_name>No</first_name>
+  <last_name>Name</last_name>
+  <age>42</age>
+</person>
