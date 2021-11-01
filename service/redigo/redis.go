@@ -4,7 +4,7 @@ import (
 	"github.com/gomodule/redigo/redis"
 )
 
-// redis 有三种模式
+// NewRedisClient 获取redis的链接
 // 1 alone, 2 sentinel, 3 cluster
 func NewRedisClient(addr []string, password string, typ int) redis.Conn {
 	var conn redis.Conn
