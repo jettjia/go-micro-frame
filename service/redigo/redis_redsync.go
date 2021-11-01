@@ -37,7 +37,9 @@ func NewRedisRedsync(addr []string, password string, typ int) *redisRedsync {
 func (r *redisRedsync) Lock(key []string, uid int, expire int) bool {
 	conn := r.Conn
 	lock := false
-	for !lock {
+
+	num := 1
+	for !lock && num < 3{
 		res, err := updateLockExpireUidScript.Do(conn, key, uid, expire)
 		if err != nil {
 			fmt.Println(err.Error())
@@ -45,11 +47,13 @@ func (r *redisRedsync) Lock(key []string, uid int, expire int) bool {
 		}
 		if res.(int64) == 1 {
 			lock = true
-			fmt.Println("获取锁成功")
+			//fmt.Println("获取锁成功")
 			return true
 		}
+
+		num++
 	}
-	fmt.Println("获取锁失败")
+	//fmt.Println("获取锁失败")
 	return false
 }
 
@@ -59,7 +63,9 @@ func (r *redisRedsync) UnLock(key []string, uid int) bool {
 
 	_, err := deleteLockByUidScript.Do(conn, key, uid)
 	if err != nil {
+		//fmt.Println("删除锁失败 ", err.Error())
 		return false
 	}
+	//fmt.Println("删除锁成功")
 	return true
 }
