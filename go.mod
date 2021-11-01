@@ -17,8 +17,6 @@ require (
 	github.com/bwmarrin/snowflake v0.3.0
 	github.com/gin-gonic/gin v1.7.4
 	github.com/go-errors/errors v1.0.1
-	github.com/go-redis/redis/v8 v8.11.3
-	github.com/go-redsync/redsync/v4 v4.3.0
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/golang/protobuf v1.5.2
@@ -26,6 +24,8 @@ require (
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645
 	github.com/hashicorp/consul/api v1.10.1
 	github.com/jinzhu/gorm v1.9.16
+	github.com/klauspost/compress v1.13.6 // indirect
+	github.com/klauspost/pgzip v1.2.5
 	github.com/mna/redisc v1.3.2
 	github.com/nacos-group/nacos-sdk-go v1.0.9
 	github.com/olivere/elastic/v7 v7.0.29
