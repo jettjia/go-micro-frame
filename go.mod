@@ -17,6 +17,7 @@ require (
 	github.com/bwmarrin/snowflake v0.3.0
 	github.com/gin-gonic/gin v1.7.4
 	github.com/go-errors/errors v1.0.1
+	github.com/go-pay/gopay v1.5.62
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/golang/protobuf v1.5.2
@@ -24,8 +25,7 @@ require (
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645
 	github.com/hashicorp/consul/api v1.10.1
 	github.com/jinzhu/gorm v1.9.16
-	github.com/klauspost/compress v1.13.6 // indirect
-	github.com/klauspost/pgzip v1.2.5
+	github.com/klauspost/compress v1.13.6
 	github.com/mna/redisc v1.3.2
 	github.com/nacos-group/nacos-sdk-go v1.0.9
 	github.com/olivere/elastic/v7 v7.0.29
@@ -33,6 +33,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/qiniu/go-sdk/v7 v7.11.0
 	github.com/satori/go.uuid v1.2.0
+	github.com/shopspring/decimal v1.3.1
 	github.com/spf13/cobra v1.2.1
 	github.com/spf13/viper v1.9.0
 	github.com/streadway/amqp v1.0.0
@@ -40,6 +41,7 @@ require (
 	github.com/tencentyun/cos-go-sdk-v5 v0.7.31
 	github.com/uber/jaeger-client-go v2.29.1+incompatible
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
+	github.com/wechatpay-apiv3/wechatpay-go v0.2.9
 	github.com/xuri/excelize/v2 v2.4.1
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/zap v1.19.1
