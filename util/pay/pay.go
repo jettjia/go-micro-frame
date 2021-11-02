@@ -17,10 +17,12 @@ func Pay(charge *common.Charge) (map[string]string, error) {
 func getPayType(payMethod int64) common.PayClient {
 	//如果使用余额支付
 	switch payMethod {
-	//case constant.ALI_WEB:
-	//	return client.DefaultAliWebClient()
+	case int64(constant.Pay_Ali_Wap):
+		return client.DefaultAliWapClient()
 	case int64(constant.Pay_Ali_App):
 		return client.DefaultAliAppClient()
+	case int64(constant.Pay_Ali_Pc):
+		return client.DefaultAliPcClient()
 
 	case int64(constant.Pay_Wechat_Web):
 		return client.DefaultWechatWebClient()

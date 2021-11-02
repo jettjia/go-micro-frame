@@ -2,11 +2,8 @@ package client
 
 import (
 	"context"
-	"crypto/rsa"
-
 	"github.com/go-pay/gopay"
 	"github.com/go-pay/gopay/alipay"
-	"github.com/go-pay/gopay/alipay/cert"
 	"github.com/go-pay/gopay/pkg/xlog"
 
 	"github.com/jettjia/go-micro-frame/util/pay/common"
@@ -18,8 +15,7 @@ var defaultAliAppClient *AliAppClient
 type AliAppClient struct {
 	AppID string // 应用ID
 
-	PrivateKey *rsa.PrivateKey
-	PublicKey  *rsa.PublicKey
+	PrivateKey string
 }
 
 func InitAliAppClient(c *AliAppClient) {
@@ -38,7 +34,7 @@ func (a AliAppClient) Pay(charge *common.Charge) (map[string]string, error) {
 	//    appId：应用ID
 	//    privateKey：应用私钥，支持PKCS1和PKCS8
 	//    isProd：是否是正式环境
-	client, err := alipay.NewClient(cert.Appid, cert.PrivateKey, false)
+	client, err := alipay.NewClient(a.AppID, a.PrivateKey, false)
 	if err != nil {
 		return nil, err
 	}
@@ -47,9 +43,9 @@ func (a AliAppClient) Pay(charge *common.Charge) (map[string]string, error) {
 
 	// 请求参数
 	bm := make(gopay.BodyMap)
-	bm.Set("subject", utilLocal.TruncatedText(charge.Describe, 32)).
+	bm.Set("subject", utilLocal.TruncatedText(charge.Describe, 256)).
 		Set("out_trade_no", charge.TradeNo).
-		Set("total_amount",  utilLocal.AliyunMoneyFeeToString(charge.MoneyFee)).
+		Set("total_amount", utilLocal.AliyunMoneyFeeToString(charge.MoneyFee)).
 		Set("notify_url", charge.CallbackURL)
 
 	// 手机APP支付参数请求
