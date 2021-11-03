@@ -19,6 +19,7 @@ func (w *WechatClient) Refund(charge *common.WxRefundReq) (map[string]string, er
 	bm := make(gopay.BodyMap)
 	bm.Set("out_trade_no", charge.TradeNo).
 		Set("out_refund_no", charge.RefundNo).
+		Set("notify_url", charge.CallbackURL).
 		SetBodyMap("amount", func(bm gopay.BodyMap) {
 			bm.Set("total", charge.MoneyFee).
 				Set("refund", charge.RefundFee).
@@ -44,7 +45,7 @@ func (w *WechatClient) Refund(charge *common.WxRefundReq) (map[string]string, er
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_1_10.shtml
 //	服务商文档：https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter4_1_10.shtml
-func (w *WechatClient) RefundQuery(charge *common.WxRefundReq) (map[string]string, error) {
+func (w *WechatClient) RefundQuery(charge *common.WxRefundQueryReq) (map[string]string, error) {
 	client, err := w.InitNewWechatClient()
 	if err != nil {
 		return nil, err

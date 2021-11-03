@@ -6,19 +6,20 @@ import (
 	"github.com/go-pay/gopay/pkg/xlog"
 	"github.com/go-pay/gopay/wechat/v3"
 
+	"github.com/jettjia/go-micro-frame/util/pay/common"
 	"github.com/jettjia/go-micro-frame/util/pay/constant"
 )
 
 // 查询订单API
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_1_2.shtml
-func (w *WechatClient) QueryOrder(outTradeNo string) (map[string]string, error) {
+func (w *WechatClient) QueryOrder(req *common.QueryOrder) (map[string]string, error) {
 	client, err := w.InitNewWechatClient()
 	if err != nil {
 		return nil, err
 	}
 
-	wxRsp, err := client.V3TransactionQueryOrder(context.TODO(), wechat.OrderNoType(constant.OutTradeNo), outTradeNo)
+	wxRsp, err := client.V3TransactionQueryOrder(context.TODO(), wechat.OrderNoType(constant.OutTradeNo), req.TradeNo)
 	if err != nil {
 		xlog.Error(err)
 		return nil, err

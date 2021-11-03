@@ -34,7 +34,6 @@ func initWapClient() {
 		AliClient: &alipay.AliClient{
 			AppID:                   appID,                   // 应用ID
 			PrivateKey:              privateKey,              // 私钥
-			PublicKey:               publicKey,               // 公钥
 			AlipayPublicContentRSA2: alipayPublicContentRSA2, // 支付宝公钥证书
 			AppPublicContent:        appPublicContent,        // 应用公钥证书
 			AlipayRootContent:       alipayRootContent,       // 支付宝根证书

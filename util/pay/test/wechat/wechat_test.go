@@ -12,9 +12,10 @@ import (
 func Test_Wechat_QueryOrder(t *testing.T) {
 	c := wechat.NewWechatClient(appID, mchID, key, serialNo, privateKeyContent, isProd)
 
-	tradeNo := "3ff232" // 本系统单号
+	charge := new(common.QueryOrder)
+	charge.TradeNo = "3ff232" // 订单号，本系统生成的单号
 
-	fdata, err := c.QueryOrder(tradeNo)
+	fdata, err := c.QueryOrder(charge)
 	if err != nil {
 		t.Error(err)
 	}
@@ -32,6 +33,20 @@ func Test_Wechat_Refund(t *testing.T) {
 	charge.RefundFee = 100         // 退款金额
 
 	fdata, err := c.Refund(charge)
+	if err != nil {
+		t.Error(err)
+	}
+	fmt.Printf("%+v", fdata)
+}
+
+// 退款查询
+func Test_Wechat_RefundQuery(t *testing.T) {
+	c := wechat.NewWechatClient(appID, mchID, key, serialNo, privateKeyContent, isProd)
+
+	charge := new(common.WxRefundQueryReq)
+	charge.RefundNo = "zzz" // 退款单号，本系统生成的退款记录单号，由退款的时候生成
+
+	fdata, err := c.RefundQuery(charge)
 	if err != nil {
 		t.Error(err)
 	}
