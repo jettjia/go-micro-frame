@@ -1,4 +1,4 @@
-package freePort
+package free_port
 
 import (
 	"net"
