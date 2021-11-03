@@ -20,7 +20,7 @@ func Test_Wechat_Mini(t *testing.T) {
 	charge.MoneyFee = 100
 	charge.Describe = "test-pay"
 	charge.TradeNo = "111111111223"
-	charge.OpenID = "oUpF8uMuAJO_M2pxb1Q9zNjWeS6o"
+	charge.ChargeWechat.OpenID = "oUpF8uMuAJO_M2pxb1Q9zNjWeS6o"
 	charge.CallbackURL = "http://127.0.0.1/callback/wechatcallback"
 
 	fdata, err := pay.Pay(charge)
@@ -33,12 +33,13 @@ func Test_Wechat_Mini(t *testing.T) {
 func initMiniClient() {
 	wechat.InitWxMiniProgramClient(&wechat.WechatMiniProgramClient{
 		WechatClient: &wechat.WechatClient{
-			AppID:      appID,
-			MchID:      mchID,
-			Key:        key,
-			IsProd:     isProd,
-			SerialNo:   serialNo,
-			PrivateKey: privateKeyContent,
+			AppID:       appID,
+			MchID:       mchID,
+			Key:         key,
+			IsProd:      isProd,
+			SerialNo:    serialNo,
+			PrivateKey:  privateKeyContent,
+			DebugSwitch: debugSwitch,
 		},
 	})
 }

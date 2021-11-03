@@ -1,11 +1,5 @@
 package common
 
-// PayClient 支付客户端接口
-type PayClient interface {
-	// 用户下单付款
-	Pay(charge *Charge) (map[string]string, error)
-}
-
 // Charge 支付参数 -公共
 type Charge struct {
 	TradeNo     string  `json:"tradeNo,omitempty"`     // 支付单号，本系统记录，传给企业微信
@@ -16,10 +10,10 @@ type Charge struct {
 	Describe    string  `json:"describe,omitempty"`    //产品描述
 
 	// 微信
-	*ChargeWechat
+	ChargeWechat
 
 	// 支付宝
-	*ChargeAli
+	ChargeAli
 }
 
 type ChargeWechat struct {

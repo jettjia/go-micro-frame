@@ -5,7 +5,6 @@ import (
 	"errors"
 	"github.com/go-pay/gopay"
 	"github.com/go-pay/gopay/pkg/xlog"
-	"github.com/go-pay/gopay/wechat/v3"
 	"github.com/jettjia/go-micro-frame/util/pay/constant"
 	utilLocal "github.com/jettjia/go-micro-frame/util/pay/util"
 	"time"
@@ -32,7 +31,7 @@ type WechatH5Client struct {
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_3_1.shtml
 func (w WechatH5Client) Pay(charge *common.Charge) (map[string]string, error) {
-	client, err := wechat.NewClientV3(w.MchID, w.SerialNo, w.Key, w.PrivateKey)
+	client, err := w.InitNewWechatClient()
 	if err != nil {
 		return nil, err
 	}
@@ -41,9 +40,6 @@ func (w WechatH5Client) Pay(charge *common.Charge) (map[string]string, error) {
 	if err != nil {
 		return nil, err
 	}
-
-	// 打开Debug开关，输出日志
-	client.DebugSwitch = gopay.DebugOff
 
 	//初始化参数Map
 	bm := make(gopay.BodyMap)

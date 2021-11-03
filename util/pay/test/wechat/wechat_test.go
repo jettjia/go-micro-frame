@@ -10,7 +10,7 @@ import (
 
 // 支付订单查询
 func Test_Wechat_QueryOrder(t *testing.T) {
-	c := wechat.NewWechatClient(appID, mchID, key, serialNo, privateKeyContent, isProd)
+	c := wechat.NewWechatClient(appID, mchID, key, serialNo, privateKeyContent, isProd, debugSwitch)
 
 	charge := new(common.QueryOrder)
 	charge.TradeNo = "3ff232" // 订单号，本系统生成的单号
@@ -24,7 +24,7 @@ func Test_Wechat_QueryOrder(t *testing.T) {
 
 // 退款
 func Test_Wechat_Refund(t *testing.T) {
-	c := wechat.NewWechatClient(appID, mchID, key, serialNo, privateKeyContent, isProd)
+	c := wechat.NewWechatClient(appID, mchID, key, serialNo, privateKeyContent, isProd, debugSwitch)
 
 	charge := new(common.WxRefundReq)
 	charge.TradeNo = "wwwwwwwwwww" // 订单号，本系统生成的单号
@@ -41,7 +41,7 @@ func Test_Wechat_Refund(t *testing.T) {
 
 // 退款查询
 func Test_Wechat_RefundQuery(t *testing.T) {
-	c := wechat.NewWechatClient(appID, mchID, key, serialNo, privateKeyContent, isProd)
+	c := wechat.NewWechatClient(appID, mchID, key, serialNo, privateKeyContent, isProd, debugSwitch)
 
 	charge := new(common.WxRefundQueryReq)
 	charge.RefundNo = "zzz" // 退款单号，本系统生成的退款记录单号，由退款的时候生成

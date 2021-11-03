@@ -9,14 +9,12 @@ import (
 )
 
 type AliClient struct {
-	AppID string // 应用ID
-
+	AppID                   string // 应用ID
 	PrivateKey              string // 私钥
 	AlipayPublicContentRSA2 string // 支付宝公钥证书
 	AppPublicContent        string // 应用公钥证书
 	AlipayRootContent       string // 支付宝根证书
-
-	DebugSwitch int // 日志开启，1开0关
+	DebugSwitch             int    // 日志开启，1开0关
 }
 
 func NewAliClient(appID, privateKey, alipayPublicContentRSA2, appPublicContent,
