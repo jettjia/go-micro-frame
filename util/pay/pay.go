@@ -1,7 +1,8 @@
 package pay
 
 import (
-	"github.com/jettjia/go-micro-frame/util/pay/client"
+	"github.com/jettjia/go-micro-frame/util/pay/client/alipay"
+	"github.com/jettjia/go-micro-frame/util/pay/client/wechat"
 	"github.com/jettjia/go-micro-frame/util/pay/common"
 	"github.com/jettjia/go-micro-frame/util/pay/constant"
 )
@@ -18,20 +19,20 @@ func getPayType(payMethod int64) common.PayClient {
 	//如果使用余额支付
 	switch payMethod {
 	case int64(constant.Pay_Ali_Wap):
-		return client.DefaultAliWapClient()
+		return alipay.DefaultAliWapClient()
 	case int64(constant.Pay_Ali_App):
-		return client.DefaultAliAppClient()
+		return alipay.DefaultAliAppClient()
 	case int64(constant.Pay_Ali_Pc):
-		return client.DefaultAliPcClient()
+		return alipay.DefaultAliPcClient()
 
 	case int64(constant.Pay_Wechat_Web):
-		return client.DefaultWechatWebClient()
+		return wechat.DefaultWechatWebClient()
 	case int64(constant.Pay_Wechat_App):
-		return client.DefaultWechatAppClient()
+		return wechat.DefaultWechatAppClient()
 	case int64(constant.Pay_Wechat_Mini):
-		return client.DefaultWechatMiniProgramClient()
+		return wechat.DefaultWechatMiniProgramClient()
 	case int64(constant.Pay_Wechat_H5):
-		return client.DefaultWechatMiniProgramClient()
+		return wechat.DefaultWechatMiniProgramClient()
 	}
 	return nil
 }

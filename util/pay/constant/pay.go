@@ -19,4 +19,8 @@ const (
 	TransactionId OrderNoType = 1
 	OutTradeNo    OrderNoType = 2
 	QueryId       OrderNoType = 3
+
+	RSA                       = "RSA"
+	RSA2                      = "RSA2"
+	UTF8                      = "utf-8"
 )

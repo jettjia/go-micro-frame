@@ -12,8 +12,12 @@ import (
 // 查询订单API
 //	Code = 0 is success
 //	商户文档：https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_1_2.shtml
-func (w *Wechat) QueryPay(outTradeNo string) (map[string]string, error) {
-	client, err := wechat.NewClientV3(w.MchID, w.SerialNo, w.Key, w.PrivateKey)
+func (w *WechatClient) QueryOrder(outTradeNo string) (map[string]string, error) {
+	client, err := w.InitNewWechatClient()
+	if err != nil {
+		return nil, err
+	}
+
 	wxRsp, err := client.V3TransactionQueryOrder(context.TODO(), wechat.OrderNoType(constant.OutTradeNo), outTradeNo)
 	if err != nil {
 		xlog.Error(err)

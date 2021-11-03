@@ -1,4 +1,4 @@
-package client
+package alipay
 
 import (
 	"context"
@@ -13,9 +13,7 @@ import (
 var defaultAliPcClient *AliPcClient
 
 type AliPcClient struct {
-	AppID string // 应用ID
-
-	PrivateKey string
+	*AliClient
 }
 
 func InitAliPcClient(c *AliPcClient) {
@@ -30,16 +28,12 @@ func DefaultAliPcClient() *AliPcClient {
 // alipay.trade.page.pay(统一收单下单并支付页面接口)
 //	文档地址：https://opendocs.alipay.com/apis/api_1/alipay.trade.page.pay
 func (a AliPcClient) Pay(charge *common.Charge) (map[string]string, error) {
-	// 初始化支付宝客户端
-	//    WapId：应用ID
-	//    privateKey：应用私钥，支持PKCS1和PKCS8
-	//    isProd：是否是正式环境
 	client, err := alipay.NewClient(a.AppID, a.PrivateKey, false)
 	if err != nil {
 		return nil, err
 	}
-	// 打开Debug开关，输出日志
-	client.DebugSwitch = gopay.DebugOn
+
+	client.SetReturnUrl(charge.CallbackURL).SetNotifyUrl(charge.CallbackURL)
 
 	// 请求参数
 	bm := make(gopay.BodyMap)
