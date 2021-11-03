@@ -61,6 +61,7 @@ OSS             【本地存储，阿里云存储，腾讯云存储，七牛存�
 SMS             【阿里云 sms】
 zip             【压缩和解压】
 xml2map         【xml2map, map2xml】
+pay             【微信支付：小程序支付、jsapi支付,app支付,native,h5支付;支付宝：手机网站支付,app支付,电脑网站支付】
 ```
 
 ## 版本说明
