@@ -9,15 +9,15 @@ import (
 )
 
 type Mysql struct {
-	Host         string
-	Port         int
-	User         string
-	Password     string
-	Db           string
-	MaxIdleConns int
-	MaxOpenConns int
-	MaxLifetime  int
-	LogMode      bool
+	Host         string // 服务器地址
+	Port         int    // 端口
+	User         string // 数据库用户名
+	Password     string // 数据库密码
+	Db           string // 数据名
+	MaxIdleConns int    // 最大空闲连接
+	MaxOpenConns int    // 最大连接数
+	MaxLifetime  int    // 最大生存时间(s)
+	LogMode      bool   // 是否打印日志
 }
 
 //参数含义:数据库用户名、密码、主机ip、连接的数据库、端口号
@@ -41,9 +41,9 @@ func (m *Mysql) GetDB() (*gorm.DB, error) {
 	if m.MaxLifetime == 0 {
 		m.MaxLifetime = 30
 	}
-	db.DB().SetMaxIdleConns(m.MaxIdleConns)                                //最大空闲连接
-	db.DB().SetMaxOpenConns(100)                                           //最大连接数
-	db.DB().SetConnMaxLifetime(time.Duration(m.MaxLifetime) * time.Second) //最大生存时间(s)
+	db.DB().SetMaxIdleConns(m.MaxIdleConns)
+	db.DB().SetMaxOpenConns(100)
+	db.DB().SetConnMaxLifetime(time.Duration(m.MaxLifetime) * time.Second)
 
 	return db, nil
 }
