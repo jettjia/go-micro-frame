@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"time"
 
-	_ "github.com/go-sql-driver/mysql"
+	logger2 "github.com/jettjia/go-micro-frame/service/logger"
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
 type Mysql struct {
@@ -30,6 +31,8 @@ func (m *Mysql) GetDB() (*gorm.DB, error) {
 	db.SingularTable(true) //如果使用gorm来帮忙创建表时，这里填写false的话gorm会给表添加s后缀，填写true则不会
 	db.LogMode(m.LogMode)  //打印sql语句
 
+	db.SetLogger(&MyLogger{})
+
 	//开启连接池
 	if m.MaxIdleConns == 0 {
 		m.MaxIdleConns = 10
@@ -45,4 +48,23 @@ func (m *Mysql) GetDB() (*gorm.DB, error) {
 	db.DB().SetConnMaxLifetime(time.Duration(m.MaxLifetime) * time.Second)
 
 	return db, nil
+}
+
+type MyLogger struct {
+}
+
+func (logger *MyLogger) Print(values ...interface{}) {
+	var (
+		level  = values[0]
+		source = values[1].(string)
+		doTime = values[2]
+		sql    = values[3].(string)
+	)
+
+	if level == "sql" {
+		logStr := fmt.Sprintf("%s", doTime) + " " + source + " " + sql
+
+		logger2.NewLogger("sql", "/tmp/sql/sql.log", "", 128, 30, 7)
+		logger2.Info(logStr)
+	}
 }
