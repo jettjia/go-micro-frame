@@ -22,9 +22,8 @@ type Mysql struct {
 
 //参数含义:数据库用户名、密码、主机ip、连接的数据库、端口号
 func (m *Mysql) GetDB() (*gorm.DB, error) {
-	connArgs := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local", m.User, m.Password, m.Host, m.Port, m.Db)
-	fmt.Println(connArgs)
-	db, err := gorm.Open("mysql", connArgs)
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local", m.User, m.Password, m.Host, m.Port, m.Db)
+	db, err := gorm.Open("mysql", dsn)
 	if err != nil {
 		return nil, err
 	}
