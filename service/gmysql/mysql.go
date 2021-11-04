@@ -17,6 +17,7 @@ type Mysql struct {
 	MaxIdleConns int
 	MaxOpenConns int
 	MaxLifetime  int
+	LogMode      bool
 }
 
 //参数含义:数据库用户名、密码、主机ip、连接的数据库、端口号
@@ -28,7 +29,7 @@ func (m *Mysql) GetDB() (*gorm.DB, error) {
 		return nil, err
 	}
 	db.SingularTable(true) //如果使用gorm来帮忙创建表时，这里填写false的话gorm会给表添加s后缀，填写true则不会
-	db.LogMode(true)       //打印sql语句
+	db.LogMode(m.LogMode)  //打印sql语句
 
 	//开启连接池
 	if m.MaxIdleConns == 0 {

@@ -22,6 +22,7 @@ func Test_GetDB(t *testing.T) {
 		MaxIdleConns: 10,
 		MaxOpenConns: 100,
 		MaxLifetime:  20,
+		LogMode:      true,
 	}
 
 	DB, err := m.GetDB()
