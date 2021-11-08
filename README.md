@@ -93,7 +93,7 @@ redis: 已封装:alone sentinel cluster 三种模式
 v1.2.X
 会增加k8s的自动化发布脚本，Prometheus、Grafana监控等
 
-v1.2.1 开发中
+v1.2.6 开发中
 cicd，自动化发布到k8s中
 ```
 
@@ -107,6 +107,29 @@ web-hyperf: php版本的web，利用 hyperf框架调用grpc服务
 ```
 v2.0 规划
 会改造到istio或者dapr的三代微服务方式中，会单独另起一个项目进行维护
+```
+
+
+
+## 快速开始
+
+安装 cli
+
+```shell
+git clone git@github.com:jettjia/go-micro-frame-cli.git
+cd go-micro-frame-cli 
+
+go build -ldflags "-w -s" -o go-micro-frame-cli main.go
+or
+go build -ldflags "-w -s" -o go-micro-frame-cli.exe main.go
+
+go-micro-frame-cli install
+```
+
+初始化项目快速开始业务
+
+```shell
+go-micro-frame-cli init you_project_name
 ```
 
 
