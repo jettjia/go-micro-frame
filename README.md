@@ -119,9 +119,7 @@ v2.0 规划
 git clone git@github.com:jettjia/go-micro-frame-cli.git
 cd go-micro-frame-cli 
 
-go build -ldflags "-w -s" -o go-micro-frame-cli main.go
-or
-go build -ldflags "-w -s" -o go-micro-frame-cli.exe main.go
+go build
 
 go-micro-frame-cli install
 ```
@@ -129,7 +127,49 @@ go-micro-frame-cli install
 初始化项目快速开始业务
 
 ```shell
-go-micro-frame-cli init you_project_name
+$ go-micro-frame-cli init you_project_name
+```
+
+更多命令和功能
+
+已支持：一键安装 mysql, redis, rabbitmq, es, go的开发环境
+
+安装微服务需要的环境：nacos, jaeger,konga...
+
+安装cicd自动化运维环境：gogs, drone, harbor
+
+一键生成cicd运行的.drone.yaml配置模板
+
+一键生成Dockerfile的运行模板
+
+未来补充：k8s...
+
+```shell
+$ go-micro-frame-cli
+Usage:
+  go-micro-frame-cli [command]
+
+Available Commands:
+  build       build go project
+  completion  generate the autocompletion script for the specified shell
+  docker      create a docker image for current project
+  drone       create .drone for ci/cd
+  env         Print go-micro-frame version and environment info
+  gen         automatically generate go files for ORM model,service, repository, handler, pb
+  gofmt       gofmt your project
+  help        Help about any command
+  init        create and initialize an empty project
+  install     install gf binary to system (might need root/admin permission)
+  run         Install common service, like go-micro-frame-cli run mysql
+  start       A brief description of your command
+  version     Show current binary version info
+
+Flags:
+      --config string   config file (default is $HOME/.go-micro-frame-cli.yaml)
+  -h, --help            help for go-micro-frame-cli
+  -t, --toggle          Help message for toggle
+
+Use "go-micro-frame-cli [command] --help" for more information about a command.
 ```
 
 
