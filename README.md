@@ -67,7 +67,7 @@ pay             【微信支付：小程序支付、jsapi支付,app支付,native
 ## 版本说明
 
 ```
-v1.1.1 完成
+v1.1.x ~ v.1.2.X 完成
 已经实现了模块介绍中的功能
 ```
 
@@ -90,18 +90,19 @@ redis: 已封装:alone sentinel cluster 三种模式
 ```
 
 ```
-v1.2.X
+v1.2.7 当前版本
+nacos, consul注册中心合并，可以在配置中任意切换
+
+v1.2.8 开发中...
+在代码中维护kong
+```
+
+```
+v1.3.X
 会增加k8s的自动化发布脚本，Prometheus、Grafana监控等
 
-v1.2.6 开发中
+v1.4.X 开发中
 cicd，自动化发布到k8s中
-```
-
-```
-v1.3.X 规划
-web层多实现
-web-springboot: java版本的web, 利用springboot框架调用grpc服务
-web-hyperf: php版本的web，利用 hyperf框架调用grpc服务
 ```
 
 ```

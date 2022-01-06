@@ -1,0 +1,55 @@
+{
+  "env": "dev",
+  "register": {
+    "typ": "nacos",
+    "host": "10.4.7.71",
+    "port": 8848,
+    "user": "nacos",
+    "password": "nacos",
+    "serviceHost": "127.0.0.1",
+    "servicePort": 50052,
+    "serviceName": "goods-srv",
+    "groupName": "dev",
+    "weight": 10
+  },
+  "logger": {
+    "logFilePath": "./tmp/logs/goods-srv.log",
+    "logLevel": "debug",
+    "maxSize": 128,
+    "maxBackups": 30,
+    "maxAge": 30
+  },
+  "mysql": {
+    "host": "10.4.7.71",
+    "port": 3307,
+    "user": "root",
+    "password": "root",
+    "db": "zhe_pms",
+    "maxIdleConns": 10,
+    "maxOpenConns": 100,
+    "maxLifetime": 20
+  },
+  "redis": {
+    "host": "10.4.7.71",
+    "port": 6379,
+    "user": "",
+    "password": ""
+  },
+  "jaeger": {
+    "host": "10.4.7.71",
+    "port": 6831,
+    "name": "mxshop"
+  },
+  "amqp": {
+    "host": "10.4.7.71",
+    "port": 5672,
+    "user": "admin",
+    "password": "123456"
+  },
+  "es": {
+    "host": "10.4.7.71",
+    "port": 9200,
+    "user": "elastic",
+    "password": "hZksYkpkcweABXu68qh0"
+  }
+}
