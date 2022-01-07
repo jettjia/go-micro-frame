@@ -103,7 +103,7 @@ func Test_Register(t *testing.T) {
 
 	// 注册服务
 	client := NewRegClient(Reg(serverConfig.RegisterInfo))
-	err = client.Register(Reg(serverConfig.RegisterInfo))
+	err = client.Register()
 	if err != nil {
 		fmt.Println("注册服务失败")
 	}
@@ -136,7 +136,7 @@ func Test_Discovery(t *testing.T) {
 
 	// 注册服务
 	client := NewRegClient(Reg(serverConfig.RegisterInfo))
-	grpcClient, err := client.Discovery(Reg(serverConfig.RegisterInfo))
+	grpcClient, err := client.Discovery()
 	if err != nil {
 		fmt.Println("发现服务失败")
 	}
@@ -170,7 +170,7 @@ func Test_DelRegister(t *testing.T) {
 
 	// 注册服务
 	client := NewRegClient(Reg(serverConfig.RegisterInfo))
-	err = client.DelRegister(Reg(serverConfig.RegisterInfo))
+	err = client.DelRegister()
 	if err != nil {
 		fmt.Println("删除服务失败")
 	}

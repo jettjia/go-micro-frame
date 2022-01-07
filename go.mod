@@ -23,6 +23,7 @@ require (
 	github.com/golang/protobuf v1.5.2
 	github.com/gomodule/redigo v1.8.5
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645
+	github.com/guonaihong/gout v0.2.11
 	github.com/hashicorp/consul/api v1.10.1
 	github.com/jinzhu/gorm v1.9.16
 	github.com/klauspost/compress v1.13.6

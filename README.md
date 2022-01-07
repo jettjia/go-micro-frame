@@ -15,6 +15,7 @@ go-micro-frame，是一套开源组件组合而成的微服务框架。所有组
 * 横向扩展
 * ci/cd
 
+
 ## 文档
 
 文档参考：https://github.com/jettjia/go-micro-fram-doc
@@ -94,7 +95,7 @@ v1.2.7 当前版本
 nacos, consul注册中心合并，可以在配置中任意切换
 
 v1.2.8 开发中...
-在代码中维护kong
+在代码中维护apisix
 ```
 
 ```
@@ -162,7 +163,6 @@ Available Commands:
   init        create and initialize an empty project
   install     install gf binary to system (might need root/admin permission)
   run         Install common service, like go-micro-frame-cli run mysql
-  start       A brief description of your command
   version     Show current binary version info
 
 Flags:
@@ -250,13 +250,6 @@ gogs
 
 
 
-### 熔断限流降级
-
-参考 sentinel章节，在web层增加处理
-
-
-
-### 网关
-
-参考kong 章节，在konga后台进行配置
+### 网关 熔断 限流降级
+apisix
 

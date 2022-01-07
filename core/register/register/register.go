@@ -26,66 +26,66 @@ type Reg struct {
 }
 
 type RegClient interface {
-	Register(conf Reg) error
-	DelRegister(conf Reg) error
-	Discovery(conf Reg) (*grpc.ClientConn, error)
+	Register() error
+	DelRegister() error
+	Discovery() (*grpc.ClientConn, error)
 }
 
-func NewRegClient(conf Reg) RegClient {
+func NewRegClient(r Reg) RegClient {
 	return &Reg{
-		Typ:         conf.Typ,
-		Host:        conf.Host,
-		Port:        conf.Port,
-		Namespace:   conf.Namespace,
-		User:        conf.User,
-		Password:    conf.Password,
-		ServiceHost: conf.ServiceHost,
-		ServicePort: conf.ServicePort,
-		ServiceName: conf.ServiceName,
-		GroupName:   conf.GroupName,
-		Weight:      conf.Weight,
-		Tags:        conf.Tags,
+		Typ:         r.Typ,
+		Host:        r.Host,
+		Port:        r.Port,
+		Namespace:   r.Namespace,
+		User:        r.User,
+		Password:    r.Password,
+		ServiceHost: r.ServiceHost,
+		ServicePort: r.ServicePort,
+		ServiceName: r.ServiceName,
+		GroupName:   r.GroupName,
+		Weight:      r.Weight,
+		Tags:        r.Tags,
 	}
 }
 
 // 注册服务
-func (r *Reg) Register(conf Reg) (err error) {
+func (r *Reg) Register() (err error) {
 	if r.Typ == "nacos" {
-		client := nacos.NewRegistryClient(conf.Host, conf.Port, conf.Namespace, conf.User, conf.Password)
-		err = client.Register(conf.ServiceHost, conf.ServicePort, conf.ServiceName, conf.GroupName, conf.Weight)
+		client := nacos.NewRegistryClient(r.Host, r.Port, r.Namespace, r.User, r.Password)
+		err = client.Register(r.ServiceHost, r.ServicePort, r.ServiceName, r.GroupName, r.Weight)
 	}
 
 	if r.Typ == "consul" {
-		client := consul.NewRegistryClient(conf.Host, int(conf.Port))
-		err = client.Register(conf.ServiceHost, int(conf.ServicePort), conf.ServiceName, conf.Tags, fmt.Sprintf("%s", uuid.NewV4()))
+		client := consul.NewRegistryClient(r.Host, int(r.Port))
+		err = client.Register(r.ServiceHost, int(r.ServicePort), r.ServiceName, r.Tags, fmt.Sprintf("%s", uuid.NewV4()))
 	}
 
 	return err
 }
 
-func (r *Reg) DelRegister(conf Reg) (err error) {
+func (r *Reg) DelRegister() (err error) {
 	if r.Typ == "nacos" {
-		client := nacos.NewRegistryClient(conf.Host, conf.Port, conf.Namespace, conf.User, conf.Password)
-		err = client.DelRegister(conf.ServiceHost, conf.ServicePort, conf.ServiceName, conf.GroupName)
+		client := nacos.NewRegistryClient(r.Host, r.Port, r.Namespace, r.User, r.Password)
+		err = client.DelRegister(r.ServiceHost, r.ServicePort, r.ServiceName, r.GroupName)
 	}
 
 	if r.Typ == "consul" {
-		client := consul.NewRegistryClient(conf.Host, int(conf.Port))
-		err = client.DelRegister(conf.ServiceId)
+		client := consul.NewRegistryClient(r.Host, int(r.Port))
+		err = client.DelRegister(r.ServiceId)
 	}
 
 	return
 }
 
-func (r *Reg) Discovery(conf Reg) (grpcClient *grpc.ClientConn, err error) {
+func (r *Reg) Discovery() (grpcClient *grpc.ClientConn, err error) {
 	if r.Typ == "nacos" {
-		client := nacos.NewRegistryClient(conf.Host, conf.Port, conf.Namespace, conf.User, conf.Password)
-		grpcClient, err = client.Discovery(conf.ServiceName, conf.GroupName)
+		client := nacos.NewRegistryClient(r.Host, r.Port, r.Namespace, r.User, r.Password)
+		grpcClient, err = client.Discovery(r.ServiceName, r.GroupName)
 	}
 
 	if r.Typ == "consul" {
-		client := consul.NewRegistryClient(conf.Host, int(conf.Port))
-		client.Discovery(conf.ServiceHost, int(conf.ServicePort), conf.ServiceName)
+		client := consul.NewRegistryClient(r.Host, int(r.Port))
+		client.Discovery(r.ServiceHost, int(r.ServicePort), r.ServiceName)
 	}
 
 	return grpcClient, err
