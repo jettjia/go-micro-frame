@@ -44,8 +44,7 @@ nacos		【配置中心】
 grpc-lb 	【负载均衡】
 jaeger		【链路追踪】
 sentinel	【限流、熔断、降级】
-kong		【网关】
-
+apisix		【网关、限流、熔断】
 ```
 
 扩展模块
@@ -84,6 +83,8 @@ rabbitmq: 已封装
 elasticSearch: 已封装
 sentinel
 redis: 已封装:alone sentinel cluster 三种模式
+nacos, consul注册中心合并，可以在配置中任意切换
+apisix,网关
 
 增加了cicd自动化发布脚本,docker打包脚本等
 这里使用的是：drone做的cicd，类似jenkins，但是比jenkins轻便很多。
@@ -91,11 +92,7 @@ redis: 已封装:alone sentinel cluster 三种模式
 ```
 
 ```
-v1.2.7 当前版本
-nacos, consul注册中心合并，可以在配置中任意切换
-
-v1.2.8 开发中...
-在代码中维护apisix
+v1.2.9 当前版本
 ```
 
 ```
