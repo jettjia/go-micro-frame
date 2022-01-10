@@ -22,7 +22,10 @@ func (a *Apisix) CreateRouter() (err error) {
 		PUT(url).
 		Debug(true).
 		SetHeader(gout.H{"X-API-KEY": a.ApisixToken}).
-		SetJSON(gout.H{"uri": "/" + a.ServiceName + "/*",
+		SetJSON(gout.H{
+			"uri": "/" + a.ServiceName + "/*",
+			"name": a.RouteName,
+			"enable_websocket": true,
 			"upstream": gout.H{"type": "roundrobin",
 				"nodes": gout.H{a.Host + strconv.Itoa(a.Port): 1}}}).
 		BindJSON(&rsp).

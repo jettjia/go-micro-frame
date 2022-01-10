@@ -11,6 +11,7 @@ func Test_CreateRouter(t *testing.T) {
 		Host:        "127.0.0.1",
 		Port:        8021,
 		ServiceName: "backend",
+		RouteName:   "测试路由",
 	}
 	client := NewApisixClient(conf)
 
@@ -29,10 +30,31 @@ func Test_DeleteRouter(t *testing.T) {
 		Host:        "127.0.0.1",
 		Port:        8021,
 		ServiceName: "backend",
+		RouteName:   "测试路由",
 	}
 	client := NewApisixClient(conf)
 
 	err := client.DeleteRouter()
+	if err != nil {
+		t.Error()
+	}
+}
+
+// Test_RateRouter
+func Test_RateRouter(t *testing.T) {
+	conf := Apisix{
+		ApisixHost:  "10.4.7.102",
+		ApisixPort:  9080,
+		ApisixToken: "edd1c9f034335f136f87ad84b625c8f1",
+		Host:        "127.0.0.1",
+		Port:        8021,
+		ServiceName: "backend",
+		RouteName:   "测试路由",
+		Rate:        10,
+	}
+	client := NewApisixClient(conf)
+
+	err := client.RateRouter()
 	if err != nil {
 		t.Error()
 	}
