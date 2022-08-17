@@ -13,7 +13,7 @@ require (
 	github.com/alibabacloud-go/tea-utils v1.4.1 // indirect
 	github.com/aliyun/aliyun-oss-go-sdk v1.9.8
 	github.com/baiyubin/aliyun-sts-go-sdk v0.0.0-20180326062324-cfa1a18b161f // indirect
-	github.com/buger/jsonparser v1.0.0 // indirect
+	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/bwmarrin/snowflake v0.3.0
 	github.com/gin-gonic/gin v1.7.4
 	github.com/go-errors/errors v1.0.1
